@@ -1,0 +1,2 @@
+#!/bin/bashrc   
+sshpass -p666993ddddLj# scp liu@dutita8.twi.tudelft.nl:/home/dv/liu/deal.ii_d10/examples/step-4/data_error_oned_sm.txt ./

@@ -1,0 +1,2 @@
+#!/bin/bashrc
+cmake -DDEAL_II_DIR=/home/wsl_jie/build/dealii_uptodate .

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super
 
 # Utility rule file for strip_comments.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
 include CMakeFiles/strip_comments.dir/progress.make
 
 CMakeFiles/strip_comments:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/step-super/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "strip comments"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "strip comments"
 	/usr/bin/perl -pi -e 's#^[ \t]*//.*\n##g;' step-super.cc
 
 strip_comments: CMakeFiles/strip_comments
@@ -72,6 +72,6 @@ CMakeFiles/strip_comments.dir/clean:
 .PHONY : CMakeFiles/strip_comments.dir/clean
 
 CMakeFiles/strip_comments.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-super && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super/CMakeFiles/strip_comments.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/strip_comments.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/strip_comments.dir/depend
 

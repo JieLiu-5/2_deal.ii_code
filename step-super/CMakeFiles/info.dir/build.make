@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super
 
 # Utility rule file for info.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
 include CMakeFiles/info.dir/progress.make
 
 CMakeFiles/info:
-	/usr/bin/cmake -P /mnt/c/Users/LIUJI/Dropbox/step-super/CMakeFiles/print_usage.cmake
+	/usr/bin/cmake -P /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/print_usage.cmake
 
 info: CMakeFiles/info
 info: CMakeFiles/info.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/info.dir/clean:
 .PHONY : CMakeFiles/info.dir/clean
 
 CMakeFiles/info.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-super && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super/CMakeFiles/info.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/info.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/info.dir/depend
 

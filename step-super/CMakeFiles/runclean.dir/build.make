@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super
 
 # Utility rule file for runclean.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-super
 include CMakeFiles/runclean.dir/progress.make
 
 CMakeFiles/runclean:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/step-super/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "runclean invoked"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "runclean invoked"
 	/usr/bin/cmake -E remove *.log *.gmv *.gnuplot *.gpl *.eps *.pov *.vtk *.ucd *.d2
 
 runclean: CMakeFiles/runclean
@@ -72,6 +72,6 @@ CMakeFiles/runclean.dir/clean:
 .PHONY : CMakeFiles/runclean.dir/clean
 
 CMakeFiles/runclean.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-super && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super /mnt/c/Users/LIUJI/Dropbox/step-super/CMakeFiles/runclean.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/runclean.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/runclean.dir/depend
 

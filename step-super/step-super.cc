@@ -56,12 +56,12 @@ typedef double real_t;
 using namespace dealii;
 using namespace std;
 
-#include"../6_headers/1_cpp/1_dealii/common_function_basic.h"
-#include"../6_headers/1_cpp/1_dealii/common_function_advanced.h"
-#include"../6_headers/1_cpp/1_dealii/compute_l2_norms_coefficient.h"
+#include"../1_header/common_function_basic.h"
+#include"../1_header/common_function_advanced.h"
+#include"../1_header/compute_l2_norms_coefficient.h"
 
-#include"../6_headers/1_cpp/1_dealii/function_for_custom_error_std.h"
-#include"../6_headers/1_cpp/1_dealii/function_for_custom_error_mix.h"
+#include"../1_header/function_for_custom_error_std.h"
+#include"../1_header/function_for_custom_error_mix.h"
 
 
 #include<1_real_valued/mainclass_step_4_real.h>

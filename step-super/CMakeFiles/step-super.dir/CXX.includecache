@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../1_header/base_class_real.h
+
+../1_header/derived_class_real.h
+
 ../step-4/include/1_real_valued/exact_solution_step_4_real.h
 
 ../step-4/include/1_real_valued/mainclass_step_4_real.h
@@ -15,12 +19,12 @@ deal.II/grid/grid_refinement.h
 -
 deal.II/numerics/error_estimator.h
 -
-../../6_headers/1_cpp/1_dealii/base_class_real.h
-../step-4/6_headers/1_cpp/1_dealii/base_class_real.h
+../../1_header/base_class_real.h
+../step-4/1_header/base_class_real.h
 1_real_valued/exact_solution_step_4_real.h
 -
-../../6_headers/1_cpp/1_dealii/derived_class_real.h
-../step-4/6_headers/1_cpp/1_dealii/derived_class_real.h
+../../1_header/derived_class_real.h
+../step-4/1_header/derived_class_real.h
 
 /home/wsl_jie/dealii_920/include/deal.II/base/aligned_vector.h
 deal.II/base/config.h
@@ -4306,6 +4310,16 @@ deal.II/lac/trilinos_vector.h
 deal.II/numerics/vector_tools_rhs.h
 -
 
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/common_function_advanced.h
+
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/common_function_basic.h
+
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/compute_l2_norms_coefficient.h
+
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/function_for_custom_error_mix.h
+
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/function_for_custom_error_std.h
+
 /mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/step-super.cc
 deal.II/base/quadrature_lib.h
 -
@@ -4381,16 +4395,16 @@ cmath
 -
 string
 -
-../6_headers/1_cpp/1_dealii/common_function_basic.h
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/6_headers/1_cpp/1_dealii/common_function_basic.h
-../6_headers/1_cpp/1_dealii/common_function_advanced.h
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/6_headers/1_cpp/1_dealii/common_function_advanced.h
-../6_headers/1_cpp/1_dealii/compute_l2_norms_coefficient.h
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/6_headers/1_cpp/1_dealii/compute_l2_norms_coefficient.h
-../6_headers/1_cpp/1_dealii/function_for_custom_error_std.h
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/6_headers/1_cpp/1_dealii/function_for_custom_error_std.h
-../6_headers/1_cpp/1_dealii/function_for_custom_error_mix.h
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/6_headers/1_cpp/1_dealii/function_for_custom_error_mix.h
+../1_header/common_function_basic.h
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/common_function_basic.h
+../1_header/common_function_advanced.h
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/common_function_advanced.h
+../1_header/compute_l2_norms_coefficient.h
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/compute_l2_norms_coefficient.h
+../1_header/function_for_custom_error_std.h
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/function_for_custom_error_std.h
+../1_header/function_for_custom_error_mix.h
+/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/1_header/function_for_custom_error_mix.h
 1_real_valued/mainclass_step_4_real.h
 -
 

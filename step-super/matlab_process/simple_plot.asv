@@ -2,26 +2,37 @@ clear all;
 close all;
 
 %%
-data_x=dlmread('../local_dof_indices_temp.txt');
-data_y=dlmread('../coords_of_uniform_dofs_of_refine_2_sequenced.txt');
-data_y_second=dlmread('../coords_of_distorted_dofs_of_refine_2_sequenced.txt');
 
-data_x_analytical = linspace(1,length(data_y),length(data_y));
+degree=3;
+current_refinement_level=4;
 
-% value_d = 1;
-value_d = 1+data_x_analytical;
+filename_uniform = sprintf('../coords_of_uniform_dofs_of_refine_%d_sequenced.txt',current_refinement_level);
+filename_distorted = sprintf('../coords_of_distorted_dofs_of_refine_%d_sequenced.txt',current_refinement_level);
 
-data_y_analytical = -value_d.*2.*(data_x_analytical-0.5);
+data_y_uniform=dlmread(filename_uniform);
 
+v
+vec=zeros(N,1);
 
+figure;
+plot(data_y_uniform,0,'ob');
 
-plot(data_x,data_y,'.r-');
+hold on;
+data_y_distorted=dlmread(filename_distorted);
+plot(data_y_distorted,0,'.g');
 
-% hold on;
-% plot(data_x_analytical, data_y_analytical,'ob-');
+hold on;
+difference_absolute = data_y_uniform-data_y_distorted;
+minimal_edge_length = data_y_uniform(degree+1)-data_y_uniform(1);
+difference_relative = difference_absolute/minimal_edge_length;
+plot(data_y_uniform,difference_relative,'.r-');
+hold off
 
-% saveas(gcf,'solution_velocity_real.png')
-% saveas(gcf,'solution_pressure_real.png')
-% saveas(gcf,'solution_pressure.png')
+legend({'Uniform','Distorted','Difference'},'Location','northwest','NumColumns',2)
+
+axis([0 1 -0.5 0.5])
+
+filename_to_be_saved=sprintf('measure_distorting_degree_%d_refine_%d.png',degree,current_refinement_level);
+saveas(gcf,filename_to_be_saved)
 
 

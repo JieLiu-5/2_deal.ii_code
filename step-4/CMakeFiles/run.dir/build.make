@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # Utility rule file for run.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
 include CMakeFiles/run.dir/progress.make
 
 CMakeFiles/run: step-4
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run step-4 with Debug configuration"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Run step-4 with Debug configuration"
 	./step-4
 
 run: CMakeFiles/run
@@ -72,6 +72,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run.dir/depend
 

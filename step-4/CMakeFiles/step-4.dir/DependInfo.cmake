@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/LIUJI/Dropbox/step-4/step-4.cc" "/mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles/step-4.dir/step-4.cc.o"
+  "/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/step-4.cc" "/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles/step-4.dir/step-4.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

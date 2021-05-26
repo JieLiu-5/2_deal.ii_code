@@ -7,7 +7,8 @@ class ExactSolution_Step_4_Real_Base:                                       // f
 public Coeff_Variable_Real<dim>
 {
 public:
-  ExactSolution_Step_4_Real_Base (const unsigned int id_case, const double coeff_var_inner_x);
+  ExactSolution_Step_4_Real_Base (const unsigned int id_case,
+                                  const double coeff_var_inner_x);
   
   virtual double value_base (const Point<dim>   &p,
                         const unsigned int  component = 0) const;
@@ -27,7 +28,8 @@ public Function<dim>,
 public ExactSolution_Step_4_Real_Base<dim>
 {
 public:
-  ExactSolution_Step_4_Real (const unsigned int id_case, const double coeff_var_inner_x);
+  ExactSolution_Step_4_Real (const unsigned int id_case,
+                             const double coeff_var_inner_x);
   
   virtual double value (const Point<dim>   &p,
                         const unsigned int  component = 0) const;
@@ -39,14 +41,16 @@ public:
 
 
 template <int dim>
-ExactSolution_Step_4_Real_Base<dim>::ExactSolution_Step_4_Real_Base(const unsigned int id_case, const double coeff_var_inner_x):
+ExactSolution_Step_4_Real_Base<dim>::ExactSolution_Step_4_Real_Base(const unsigned int id_case,
+                                                                    const double coeff_var_inner_x):
 Coeff_Variable_Real<dim>(id_case,coeff_var_inner_x),
 id_case(id_case),
 coeff_var_inner_x(coeff_var_inner_x)
 {}
 
 template <int dim>
-ExactSolution_Step_4_Real<dim>::ExactSolution_Step_4_Real(const unsigned int id_case, const double coeff_var_inner_x):
+ExactSolution_Step_4_Real<dim>::ExactSolution_Step_4_Real(const unsigned int id_case,
+                                                          const double coeff_var_inner_x):
 Function<dim>(1),
 ExactSolution_Step_4_Real_Base<dim>(id_case,coeff_var_inner_x)
 {}
@@ -86,7 +90,7 @@ double ExactSolution_Step_4_Real_Base<dim> :: value_base (const Point<dim>   &p,
         return_value = this->coeff_outer_x*pow((p[0]-this->center_x)/this->coeff_var_inner_x,2)+this->coeff_var_inde;
       }else if(dim==2)
       {
-        return_value = this->coeff_outer_x*pow((p[0]-this->center_x)/this->coeff_var_inner_x,2)+this->coeff_outer_y*pow((p[1]-this->center_y)/this->coeff_var_inner_y,2)+this->coeff_var_inde;  
+        return_value = this->coeff_outer_x*pow((p[0]-this->center_x)/this->coeff_var_inner_x,2)+this->coeff_outer_y*pow((p[1]-this->center_y)/this->coeff_var_inner_y,2) + (p[0]-0.5)*(p[1]-0.5) + this->coeff_var_inde;  
       }
       break;
 //     case 611:
@@ -155,8 +159,8 @@ Tensor<1,dim> ExactSolution_Step_4_Real_Base<dim>::gradient_base (const Point<di
         return_value[0] = 2*this->coeff_outer_x*(p[0]-this->center_x)/pow(this->coeff_var_inner_x,2.0);
       }else if(dim==2)
       {
-        return_value[0] = 2*this->coeff_outer_x*(p[0]-this->center_x)/pow(this->coeff_var_inner_x,2.0);
-        return_value[1] = 2*this->coeff_outer_y*(p[1]-this->center_y)/pow(this->coeff_var_inner_y,2.0);
+        return_value[0] = 2*this->coeff_outer_x*(p[0]-this->center_x)/pow(this->coeff_var_inner_x,2.0) + (p[1]-0.5);
+        return_value[1] = 2*this->coeff_outer_y*(p[1]-this->center_y)/pow(this->coeff_var_inner_y,2.0) + (p[0]-0.5);
       }        
       break;
 //     case 611:
@@ -229,8 +233,8 @@ SymmetricTensor<2,dim> ExactSolution_Step_4_Real_Base<dim>::hessian_base (const 
       }else if(dim==2)
       {
         return_value[0][0] = 2.0*this->coeff_outer_x/pow(this->coeff_var_inner_x,2);  
-        return_value[0][1] = 0.0;
-        return_value[1][0] = 0.0;
+        return_value[0][1] = 1.0;
+        return_value[1][0] = 1.0;
         return_value[1][1] = 2.0*this->coeff_outer_y/pow(this->coeff_var_inner_y,2);
       }        
       break;

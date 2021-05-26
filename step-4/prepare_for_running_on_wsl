@@ -3,6 +3,6 @@
 #To run deal.ii on windows subsystem for Linux, add the following command to locate the deal.ii directory, apr 20, 2020
 
 rm CMakeCache.txt;
-cmake -DDEAL_II_DIR=/home/wsl_jie/build/dealii_uptodate;
+cmake -DDEAL_II_DIR=/home/wsl_jie/dealii_920;
 cmake ..;
 make -j4; ./step-4 2 2 1 1e-8 0 1 2 4;

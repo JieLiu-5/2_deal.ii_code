@@ -4,11 +4,15 @@
 
 
 template <int dim>
-class ExactSolution_Step_4_Complex_Both :
-public Coeff_Variable_Complex<dim>
-{
-public:
-  ExactSolution_Step_4_Complex_Both (const unsigned int id_case);
+class ExactSolution_Step_4_Complex_Both :                                                       // inherited by class 1. ExactSolution_Step_4_Complex_Amp
+public Coeff_Variable_Complex<dim>                                                              //                    2. ExactSolution_Step_4_Complex_Real
+{                                                                                               //                    3. ExactSolution_Step_4_Complex_Imag
+public:                                                                                         //                    4. PressureBoundaryValues_Complex
+                                                                                                //                    5. RightHandSide_Complex
+    
+  ExactSolution_Step_4_Complex_Both (const unsigned int id_case,
+                                     const double coeff_var_inner_x);
+  
   virtual complex<double> value_both (const Point<dim>   &p,
                         const unsigned int  component = 0) const;
   virtual Tensor<1,dim,complex<double>> gradient_both (const Point<dim>   &p,
@@ -17,6 +21,7 @@ public:
                                   const unsigned int  component = 0) const;     
 protected:
   const unsigned int id_case;
+  const double coeff_var_inner_x;
 };
 
 
@@ -26,7 +31,8 @@ public Function<dim>,
 public ExactSolution_Step_4_Complex_Both<dim>
 {
 public:
-  ExactSolution_Step_4_Complex_Amp (const unsigned int id_case);
+  ExactSolution_Step_4_Complex_Amp (const unsigned int id_case,
+                                     const double coeff_var_inner_x);
   virtual double value (const Point<dim>   &p,
                         const unsigned int  component = 0) const;
 };
@@ -37,7 +43,8 @@ public Function<dim>,
 public ExactSolution_Step_4_Complex_Both<dim>
 {
 public:
-  ExactSolution_Step_4_Complex_Real (const unsigned int id_case);
+  ExactSolution_Step_4_Complex_Real (const unsigned int id_case,
+                                     const double coeff_var_inner_x);
   virtual double value (const Point<dim>   &p,
                         const unsigned int  component = 0) const;
   virtual Tensor<1,dim> gradient (const Point<dim>   &p,
@@ -52,7 +59,8 @@ public Function<dim>,
 public ExactSolution_Step_4_Complex_Both<dim>
 {
 public:
-  ExactSolution_Step_4_Complex_Imag (const unsigned int id_case);
+  ExactSolution_Step_4_Complex_Imag (const unsigned int id_case,
+                                     const double coeff_var_inner_x);
   virtual double value (const Point<dim>   &p,
                         const unsigned int  component = 0) const;
   virtual Tensor<1,dim> gradient (const Point<dim>   &p,
@@ -63,27 +71,35 @@ public:
 
 
 template <int dim>
-ExactSolution_Step_4_Complex_Both<dim>::ExactSolution_Step_4_Complex_Both(const unsigned int id_case):
+ExactSolution_Step_4_Complex_Both<dim>::ExactSolution_Step_4_Complex_Both(const unsigned int id_case,
+                                                                          const double coeff_var_inner_x):
 Coeff_Variable_Complex<dim>(id_case),
-id_case(id_case)
+id_case(id_case),
+coeff_var_inner_x(coeff_var_inner_x)
 {}
 
 template <int dim>
-ExactSolution_Step_4_Complex_Amp<dim>::ExactSolution_Step_4_Complex_Amp(const unsigned int id_case):
+ExactSolution_Step_4_Complex_Amp<dim>::ExactSolution_Step_4_Complex_Amp(const unsigned int id_case,
+                                                                        const double coeff_var_inner_x):
 Function<dim>(1),
-ExactSolution_Step_4_Complex_Both<dim>(id_case)
+ExactSolution_Step_4_Complex_Both<dim>(id_case,
+                                       coeff_var_inner_x)
 {}
 
 template <int dim>
-ExactSolution_Step_4_Complex_Real<dim>::ExactSolution_Step_4_Complex_Real(const unsigned int id_case):
+ExactSolution_Step_4_Complex_Real<dim>::ExactSolution_Step_4_Complex_Real(const unsigned int id_case,
+                                                                        const double coeff_var_inner_x):
 Function<dim>(1),
-ExactSolution_Step_4_Complex_Both<dim>(id_case)
+ExactSolution_Step_4_Complex_Both<dim>(id_case,
+                                       coeff_var_inner_x)
 {}
 
 template <int dim>
-ExactSolution_Step_4_Complex_Imag<dim>::ExactSolution_Step_4_Complex_Imag(const unsigned int id_case):
+ExactSolution_Step_4_Complex_Imag<dim>::ExactSolution_Step_4_Complex_Imag(const unsigned int id_case,
+                                                                        const double coeff_var_inner_x):
 Function<dim>(1),
-ExactSolution_Step_4_Complex_Both<dim>(id_case)
+ExactSolution_Step_4_Complex_Both<dim>(id_case,
+                                       coeff_var_inner_x)
 {}
 
 
@@ -91,6 +107,9 @@ template <int dim>
 complex<double> ExactSolution_Step_4_Complex_Both<dim> :: value_both (const Point<dim>   &p,
                                                         const unsigned int ) const
 {
+    
+//   cout << "ExactSolution_Step_4_Complex_Both\n";
+    
   complex<double> return_value;
   switch(id_case)
   {
@@ -102,20 +121,27 @@ complex<double> ExactSolution_Step_4_Complex_Both<dim> :: value_both (const Poin
       {
         return_value = this->A*std::exp(this->r1*p[0])+this->B*std::exp(this->r2*p[0]);       
       }else if(dim==2)
-      {        
+      {
         return_value = (this->A*std::exp(this->r1*p[0])+this->B*std::exp(this->r2*p[0]))*cos(this->coeff_y*(p[1]-this->centre_y));
       }
       break;
     case 61:
-      for(unsigned int i=0; i<dim; ++i)
+      if(dim == 1)
       {
-        return_value += pow(p[i]-0.5, 2.0);
+          return_value = pow(p[0]-0.5, 2.0) * (1.0 + 1.0i);
+      }else if(dim == 2)
+      {
+          return_value = (pow(p[0]-0.5, 2.0) + (p[0]-0.5)*(p[1]-0.5) + pow(p[1]-0.5, 2.0)) * (1.0 + 1.0i);
       }
       break;
     default:
       cout << "  case does not exist\n";
       throw exception();    
   }
+  
+//   cout << "coords: " << p << ", "
+//        << "value of the exact solution: " << return_value << "\n";
+  
   return return_value;
 }
 
@@ -140,9 +166,13 @@ Tensor<1,dim,complex<double>> ExactSolution_Step_4_Complex_Both<dim>::gradient_b
       }
       break;
     case 61:
-      for(unsigned int i=0; i<dim; ++i)
+      if (dim==1)
       {
-        return_value[i] = 2.0 * (p[i]-0.5);
+        return_value[0] = (2.0 * (p[0]-0.5)) * (1.0 + 1.0i);
+      }else if(dim == 2)
+      {
+        return_value[0] = (2.0 * (p[0]-0.5) + (p[1]-0.5)) * (1.0 + 1.0i);
+        return_value[1] = (2.0 * (p[1]-0.5) + (p[0]-0.5)) * (1.0 + 1.0i);
       }
       break;
     default:
@@ -175,14 +205,20 @@ SymmetricTensor<2,dim,complex<double>> ExactSolution_Step_4_Complex_Both<dim>::h
       }
       break;
     case 61:
-      for(unsigned int i=0; i<dim; ++i)
+      if (dim==1)
       {
-        return_value[i][i] = 2.0;
+        return_value[0][0] = 2.0 * (1.0 + 1.0i);
+      }else if(dim==2)
+      {
+        return_value[0][0] = 2.0 * (1.0 + 1.0i); 
+        return_value[0][1] = 1.0 * (1.0 + 1.0i);
+        return_value[1][0] = 1.0 * (1.0 + 1.0i);
+        return_value[1][1] = 2.0 * (1.0 + 1.0i);
       }
       break;
     default:
       cout << "  case does not exist\n";
-      throw exception();      
+      throw exception();
   }
   return return_value;
 }
@@ -200,6 +236,8 @@ template <int dim>
 double ExactSolution_Step_4_Complex_Real<dim> :: value (const Point<dim>   &p,
                                                         const unsigned int ) const
 {
+//   cout << "ExactSolution_Step_4_Complex_Real<dim> :: value\n";
+    
   return ExactSolution_Step_4_Complex_Both<dim>::value_both(p).real();
 }
 
@@ -207,6 +245,9 @@ template <int dim>
 Tensor<1,dim> ExactSolution_Step_4_Complex_Real<dim>::gradient (const Point<dim>   &p,
                                                                 const unsigned int) const
 {
+    
+//   cout << "ExactSolution_Step_4_Complex_Real<dim> :: gradient\n";
+    
   Tensor<1,dim> return_value;
   for(unsigned int i=0; i<dim; ++i)
   {

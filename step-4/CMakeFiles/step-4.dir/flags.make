@@ -6,5 +6,5 @@ CXX_FLAGS =   -pedantic -fPIC -Wall -Wextra -Woverloaded-virtual -Wpointer-arith
 
 CXX_DEFINES = -DBOOST_NO_AUTO_PTR -DDEBUG -DTBB_DO_ASSERT=1 -DTBB_USE_DEBUG
 
-CXX_INCLUDES = -I/mnt/c/Users/LIUJI/Dropbox/step-4/include -I/home/wsl_jie/build/dealii_uptodate/include/gismo/src -isystem /home/wsl_jie/dealii_920/include -isystem /home/wsl_jie/dealii_920/include/deal.II/bundled -isystem /usr/include/suitesparse 
+CXX_INCLUDES = -I/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/include -I/home/wsl_jie/build/dealii_uptodate/include/gismo/src -isystem /home/wsl_jie/dealii_920/include -isystem /home/wsl_jie/dealii_920/include/deal.II/bundled -isystem /usr/include/suitesparse 
 

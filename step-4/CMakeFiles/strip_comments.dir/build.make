@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # Utility rule file for strip_comments.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
 include CMakeFiles/strip_comments.dir/progress.make
 
 CMakeFiles/strip_comments:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "strip comments"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "strip comments"
 	/usr/bin/perl -pi -e 's#^[ \t]*//.*\n##g;' step-4.cc
 
 strip_comments: CMakeFiles/strip_comments
@@ -72,6 +72,6 @@ CMakeFiles/strip_comments.dir/clean:
 .PHONY : CMakeFiles/strip_comments.dir/clean
 
 CMakeFiles/strip_comments.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles/strip_comments.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles/strip_comments.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/strip_comments.dir/depend
 

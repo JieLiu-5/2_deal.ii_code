@@ -13,7 +13,6 @@ CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/derivative_form.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/exceptions.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/function.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/function.templates.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/function_time.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/geometry_info.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/index_set.h
@@ -56,7 +55,6 @@ CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/template_constraints.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/tensor.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/tensor_accessors.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/tensor_function.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/tensor_polynomials_base.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/tensor_product_polynomials.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/base/thread_local_storage.h
@@ -126,14 +124,12 @@ CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs/dof_iterator_selector.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs/dof_levels.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs/dof_objects.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs/dof_renumbering.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs/dof_tools.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/dofs/number_cache.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/block_mask.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/component_mask.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/fe.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/fe_base.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/fe_dgq.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/fe_nedelec.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/fe_nedelec_sz.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/fe/fe_nothing.h
@@ -200,18 +196,14 @@ CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/lapack_support.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/matrix_iterator.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/petsc_block_vector.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/petsc_solver.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/petsc_vector.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/petsc_vector_base.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/precondition.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/read_write_vector.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/slepc_spectral_transformation.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/solver.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/solver_cg.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/solver_control.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_decomposition.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_direct.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_ilu.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_matrix.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_matrix_ez.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/sparsity_pattern.h
@@ -220,7 +212,6 @@ CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_epetra_communication_pattern.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_epetra_vector.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_parallel_block_vector.h
-CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_solver.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_sparsity_pattern.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_tpetra_communication_pattern.h
 CMakeFiles/step-4.dir/step-4.cc.o: /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_tpetra_vector.h

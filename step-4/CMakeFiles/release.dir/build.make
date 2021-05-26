@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # Utility rule file for release.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
 include CMakeFiles/release.dir/progress.make
 
 CMakeFiles/release:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Switching CMAKE_BUILD_TYPE to Release"
-	/usr/bin/cmake -DCMAKE_BUILD_TYPE=Release /mnt/c/Users/LIUJI/Dropbox/step-4
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Switching CMAKE_BUILD_TYPE to Release"
+	/usr/bin/cmake -DCMAKE_BUILD_TYPE=Release /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 	/usr/bin/cmake -E echo "***"
 	/usr/bin/cmake -E echo "*** Switched to Release mode. Now recompile with:  \$$ make"
 	/usr/bin/cmake -E echo "***"
@@ -75,6 +75,6 @@ CMakeFiles/release.dir/clean:
 .PHONY : CMakeFiles/release.dir/clean
 
 CMakeFiles/release.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles/release.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles/release.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/release.dir/depend
 

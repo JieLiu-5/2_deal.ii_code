@@ -1,0 +1,2 @@
+#!/bin/bashrc   
+sshpass -p666993ddddLj* scp liu@dutita8.twi.tudelft.nl:/home/dv/liu/2_deal.ii_code/step-4/0_files_for_execution/2d/0_sm/data_output_error_0_sm_0_real.txt ./

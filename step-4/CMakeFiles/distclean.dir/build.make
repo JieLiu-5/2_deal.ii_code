@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_SOURCE_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
+CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # Utility rule file for distclean.
 
@@ -54,9 +54,9 @@ CMAKE_BINARY_DIR = /mnt/c/Users/LIUJI/Dropbox/step-4
 include CMakeFiles/distclean.dir/progress.make
 
 CMakeFiles/distclean:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "distclean invoked"
-	/usr/bin/cmake --build /mnt/c/Users/LIUJI/Dropbox/step-4 --target clean
-	/usr/bin/cmake --build /mnt/c/Users/LIUJI/Dropbox/step-4 --target runclean
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "distclean invoked"
+	/usr/bin/cmake --build /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 --target clean
+	/usr/bin/cmake --build /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 --target runclean
 	/usr/bin/cmake -E remove_directory CMakeFiles
 	/usr/bin/cmake -E remove CMakeCache.txt cmake_install.cmake Makefile build.ninja rules.ninja .ninja_deps .ninja_log
 
@@ -75,6 +75,6 @@ CMakeFiles/distclean.dir/clean:
 .PHONY : CMakeFiles/distclean.dir/clean
 
 CMakeFiles/distclean.dir/depend:
-	cd /mnt/c/Users/LIUJI/Dropbox/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4 /mnt/c/Users/LIUJI/Dropbox/step-4/CMakeFiles/distclean.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4 /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/CMakeFiles/distclean.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/distclean.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/LIUJI/Dropbox/step-4
+# Install script for directory: /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/Users/LIUJI/Dropbox/step-4/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

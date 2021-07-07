@@ -584,7 +584,7 @@ void Step_4_Complex<dim>::from_setup_system_to_solve_for_the_complex_valued_prob
   stage_2a_setup_system_distributing_dofs_for_the_complex_valued_problem();
   this->stage_2b_setup_system_the_rest ();
   
-#if 0
+#if 1
   stage_3_assemble_system_for_the_complex_valued_problem ();
   this->stage_4_solve ();    
 #endif
@@ -617,7 +617,7 @@ void Step_4_Complex<dim>::run ()
   
   if(this->id_case == 1)
   {
-      this->is_built_in_method_used_for_error = 0;
+//       this->is_built_in_method_used_for_error = 0;
   }
   
   this->preparing_for_the_initial_grid_and_other_settings();

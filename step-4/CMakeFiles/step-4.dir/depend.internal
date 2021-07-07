@@ -33,11 +33,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/base/patterns.h
  /home/wsl_jie/dealii_920/include/deal.II/base/point.h
  /home/wsl_jie/dealii_920/include/deal.II/base/polynomial.h
- /home/wsl_jie/dealii_920/include/deal.II/base/polynomial_space.h
- /home/wsl_jie/dealii_920/include/deal.II/base/polynomials_integrated_legendre_sz.h
- /home/wsl_jie/dealii_920/include/deal.II/base/polynomials_nedelec.h
- /home/wsl_jie/dealii_920/include/deal.II/base/polynomials_raviart_thomas.h
- /home/wsl_jie/dealii_920/include/deal.II/base/qprojector.h
  /home/wsl_jie/dealii_920/include/deal.II/base/quadrature.h
  /home/wsl_jie/dealii_920/include/deal.II/base/quadrature_lib.h
  /home/wsl_jie/dealii_920/include/deal.II/base/scalar_polynomials_base.h
@@ -45,7 +40,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/base/std_cxx14/algorithm.h
  /home/wsl_jie/dealii_920/include/deal.II/base/std_cxx14/memory.h
  /home/wsl_jie/dealii_920/include/deal.II/base/std_cxx14/utility.h
- /home/wsl_jie/dealii_920/include/deal.II/base/std_cxx17/optional.h
  /home/wsl_jie/dealii_920/include/deal.II/base/std_cxx17/tuple.h
  /home/wsl_jie/dealii_920/include/deal.II/base/std_cxx20/iota_view.h
  /home/wsl_jie/dealii_920/include/deal.II/base/subscriptor.h
@@ -56,7 +50,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/base/template_constraints.h
  /home/wsl_jie/dealii_920/include/deal.II/base/tensor.h
  /home/wsl_jie/dealii_920/include/deal.II/base/tensor_accessors.h
- /home/wsl_jie/dealii_920/include/deal.II/base/tensor_polynomials_base.h
  /home/wsl_jie/dealii_920/include/deal.II/base/tensor_product_polynomials.h
  /home/wsl_jie/dealii_920/include/deal.II/base/thread_local_storage.h
  /home/wsl_jie/dealii_920/include/deal.II/base/thread_management.h
@@ -64,9 +57,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/base/types.h
  /home/wsl_jie/dealii_920/include/deal.II/base/utilities.h
  /home/wsl_jie/dealii_920/include/deal.II/base/vectorization.h
- /home/wsl_jie/dealii_920/include/deal.II/boost_adaptors/bounding_box.h
- /home/wsl_jie/dealii_920/include/deal.II/boost_adaptors/point.h
- /home/wsl_jie/dealii_920/include/deal.II/boost_adaptors/segment.h
  /home/wsl_jie/dealii_920/include/deal.II/bundled/tbb/aligned_space.h
  /home/wsl_jie/dealii_920/include/deal.II/bundled/tbb/atomic.h
  /home/wsl_jie/dealii_920/include/deal.II/bundled/tbb/blocked_range.h
@@ -114,7 +104,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/differentiation/ad/ad_number_types.h
  /home/wsl_jie/dealii_920/include/deal.II/differentiation/ad/adolc_math.h
  /home/wsl_jie/dealii_920/include/deal.II/distributed/p4est_wrappers.h
- /home/wsl_jie/dealii_920/include/deal.II/distributed/tria.h
  /home/wsl_jie/dealii_920/include/deal.II/distributed/tria_base.h
  /home/wsl_jie/dealii_920/include/deal.II/dofs/block_info.h
  /home/wsl_jie/dealii_920/include/deal.II/dofs/deprecated_function_map.h
@@ -131,16 +120,9 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/fe/component_mask.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_base.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_nedelec.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_nedelec_sz.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_nothing.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_poly.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_poly_tensor.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_q.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_q_base.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_raviart_thomas.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_system.h
- /home/wsl_jie/dealii_920/include/deal.II/fe/fe_tools.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_update_flags.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_values.h
  /home/wsl_jie/dealii_920/include/deal.II/fe/fe_values_extractors.h
@@ -150,9 +132,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/grid/cell_id.h
  /home/wsl_jie/dealii_920/include/deal.II/grid/filtered_iterator.h
  /home/wsl_jie/dealii_920/include/deal.II/grid/grid_generator.h
- /home/wsl_jie/dealii_920/include/deal.II/grid/grid_tools.h
- /home/wsl_jie/dealii_920/include/deal.II/grid/intergrid_map.h
- /home/wsl_jie/dealii_920/include/deal.II/grid/manifold.h
  /home/wsl_jie/dealii_920/include/deal.II/grid/tria.h
  /home/wsl_jie/dealii_920/include/deal.II/grid/tria_accessor.h
  /home/wsl_jie/dealii_920/include/deal.II/grid/tria_accessor.templates.h
@@ -208,7 +187,6 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_matrix.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/sparse_matrix_ez.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/sparsity_pattern.h
- /home/wsl_jie/dealii_920/include/deal.II/lac/sparsity_tools.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/tridiagonal_matrix.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_epetra_communication_pattern.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/trilinos_epetra_vector.h
@@ -224,50 +202,24 @@ CMakeFiles/step-4.dir/step-4.cc.o
  /home/wsl_jie/dealii_920/include/deal.II/lac/vector_operations_internal.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/vector_space_vector.h
  /home/wsl_jie/dealii_920/include/deal.II/lac/vector_type_traits.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/dof_info.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/evaluation_kernels.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/evaluation_selector.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/face_info.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/fe_evaluation.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/helper_functions.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/mapping_data_on_the_fly.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/mapping_info.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/matrix_free.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/operators.h
  /home/wsl_jie/dealii_920/include/deal.II/matrix_free/shape_info.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/task_info.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/tensor_product_kernels.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/type_traits.h
- /home/wsl_jie/dealii_920/include/deal.II/matrix_free/vector_access_internal.h
- /home/wsl_jie/dealii_920/include/deal.II/multigrid/mg_constrained_dofs.h
- /home/wsl_jie/dealii_920/include/deal.II/multigrid/mg_tools.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/data_component_interpretation.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/data_out.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/data_out_dof_data.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/data_postprocessor.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/matrix_tools.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/rtree.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_boundary.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_boundary.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_common.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_constraints.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_constraints.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_integrate_difference.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_integrate_difference.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_interpolate.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_interpolate.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_mean_value.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_mean_value.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_point_gradient.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_point_gradient.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_point_value.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_point_value.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_project.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_project.templates.h
  /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_rhs.h
- /home/wsl_jie/dealii_920/include/deal.II/numerics/vector_tools_rhs.templates.h
  /mnt/c/Users/LIUJI/Dropbox/2_deal.ii_code/step-4/step-4.cc
  /usr/include/suitesparse/SuiteSparse_config.h
  /usr/include/suitesparse/amd.h

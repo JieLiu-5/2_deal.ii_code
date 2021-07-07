@@ -7,9 +7,9 @@ struct GridFunc_1D                                 // class for the mesh distort
     
 public:
     
-  GridFunc_1D(unsigned int id_regular_grid)
+  GridFunc_1D(unsigned int id_regular_grid_arg)
   {
-    id_regular_grid = id_regular_grid;
+    id_regular_grid = id_regular_grid_arg;
   }
     
   double trans(const double y) const
@@ -17,7 +17,8 @@ public:
       
     switch(id_regular_grid)
     {
-      case 1:
+      case 2:
+      
         if(y<0.5)
         {
           return y/2.0;
@@ -26,7 +27,7 @@ public:
           return (y+1.0)/2.0;  
         }
         break;
-      case 2:
+      case 3:
         if(y<0.5)
         {
           return y/(1.5-y);

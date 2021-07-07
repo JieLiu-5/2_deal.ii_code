@@ -78,17 +78,17 @@ public:
   unsigned int is_containing_neumann = 1;
   
   unsigned int current_refinement_level_for_showing = 0;
-    
-  unsigned int id_method_mesh_distortion = 1;               // '0' for randomly distorted mesh
-                                                            // '1' for regularly distorted mesh
   
+  unsigned int id_type_of_grid_distortion = 1;                             // for type of grid distortion
+                                                                           // '1' for randomly distortion
+                                                                           // '2' for the method on line 410, which is a linear case
+                                                                           // '3' for the method on line 420, which is a sine case
+                                                                           
   double factor_distorting = 0.4;                               // used for randomly distorted mesh
-  unsigned int id_type_of_regular_grid = 1;                             // cases for regularly distorted mesh
-                                                                                                   // '1' for the method on line 410, which is a linear case
-                                                                                                   // '2' for the method on line 420, which is a sine case
   
   
-  string obj_string="";
+  string obj_string = "";
+  string obj_string_path = "";
   unsigned int n_dofs_bspline = 1;
   
   DoFHandler<dim>      dof_handler;
@@ -155,6 +155,8 @@ public:
   vector<vector<double>> vec_error;
   vector<vector<double>> vec_error_distorted;
   
+  vector<vector<double>> vec_error_using_finer_solution;
+  
   vector<vector<float>> vec_convergence_rate;
   vector<vector<float>> vec_convergence_rate_distorted;
   
@@ -171,8 +173,6 @@ public:
   unsigned int n_times_called_computing_error_customly = 0;
   
   TimerOutput          computing_timer;
-    
-  
 
 
   void preparing_for_the_initial_grid_and_other_settings();
@@ -260,10 +260,10 @@ public:
   unsigned int are_norms_of_solution_computed_numerically = 1;
   
     
-  unsigned int is_the_error_printed_built_in = 0;
-  unsigned int is_the_l2_norm_printed_built_in = 0;
+  unsigned int is_the_error_printed_built_in = 1;
+  unsigned int is_the_l2_norm_printed_built_in = 1;
   
-  unsigned int is_the_error_printed_custom = 0;
+  unsigned int is_the_error_printed_custom = 1;
   
   unsigned int is_cpu_time_printed = 0;
   
@@ -291,8 +291,8 @@ Step_4_Number_Type_Independent<dim>::Step_4_Number_Type_Independent(const int id
                                                                 const double coeff_helm_inner,
                                                                 const unsigned int degree,
                                                                 const unsigned int id_mesh_being_created,
-                                                                  const unsigned int grid_param_initial,
-                                                                  const unsigned int n_total_refinements):
+                                                                const unsigned int grid_param_initial,
+                                                                const unsigned int n_total_refinements):
 id_quad_assem_incre(id_quad_assem_incre),
 tol_prm(tol_prm),
 is_custom_method_used_for_error(is_custom_method_used_for_error),
@@ -320,7 +320,6 @@ void Step_4_Number_Type_Independent<dim>::stage_1_making_grid_and_adjusting_boun
     
   if(id_mesh_being_created == 0)
   {
-//     cout << "  mesh built_in\n";
       
     initial_refinement_level = grid_param_initial;
     
@@ -372,7 +371,12 @@ void Step_4_Number_Type_Independent<dim>::stage_1_making_grid_and_adjusting_boun
           cells[i].vertices[j] = cell_vertices[i][j];
         }
       }
-      triangulation.create_triangulation (vertices, cells, SubCellData());  
+      triangulation.create_triangulation (vertices, cells, SubCellData());
+      
+      if(is_tria_info_printed == 1)
+      {
+        print_tria_info(triangulation);
+      }
         
     }else if(dim == 2)
     {
@@ -407,11 +411,27 @@ void Step_4_Number_Type_Independent<dim>::stage_1_making_grid_and_adjusting_boun
     exit(1);
   }
   
-#if 1
-  if(is_tria_info_printed == 1)
+#if 0
+  vector<Point<dim>> coords_of_triangulation_vertices = triangulation.get_vertices();
+  cout << "coordinates of triangulation vertices\n";
+  print_vector_horizontally(coords_of_triangulation_vertices);
+
+  vector<double> vector_numbers_for_sequencing;
+  for (unsigned int i = 0; i < triangulation.n_vertices(); ++i)
   {
-    print_tria_info(triangulation);
+    vector_numbers_for_sequencing.push_back(coords_of_triangulation_vertices[i][0]);
   }
+
+  sort( vector_numbers_for_sequencing.begin(), vector_numbers_for_sequencing.end() );
+
+  
+  obj_string_path = "../../3_writing/0_article/1_figure/5_matlab_process/0_mesh_distortion/0_data/0_vertices/";
+  obj_string = obj_string_path + "data_output_coords_vertices_refine_"+to_string(current_refinement_level_for_showing) + "_mesh_type_" + to_string(0) + "_sequenced.txt";
+  save_vector_of_numbers_to_a_file_without_inserting_a_tag(obj_string, vector_numbers_for_sequencing);
+  
+#endif
+  
+#if 1
   
   if (is_containing_neumann==0)
   {
@@ -520,19 +540,23 @@ void Step_4_Number_Type_Independent<dim>::distorting_the_mesh()
 {
   cout << "\n";
   
-  if(id_method_mesh_distortion == 0)
+  if(id_type_of_grid_distortion == 1)
   {
       
     cout << "Distorting the mesh randomly with the factor " << factor_distorting << "\n";
     
     GridTools::distort_random(factor_distorting, triangulation);
     
-  }else if(id_method_mesh_distortion == 1)
+  }else if(id_type_of_grid_distortion == 2 or id_type_of_grid_distortion == 3)
   {
     cout << "Distorting the mesh using a function\n";
     
-#if 0
-      GridTools::transform(GridFunc_1D(id_type_of_regular_grid), triangulation);
+#if 1
+    
+    cout << "id_type_of_grid_distortion: " << id_type_of_grid_distortion << "\n";
+    
+      GridTools::transform(GridFunc_1D(id_type_of_grid_distortion), triangulation);
+      
 #else
 //     distorting_the_2d_mesh_moving_top_vertices_upwards(triangulation);
     
@@ -542,10 +566,31 @@ void Step_4_Number_Type_Independent<dim>::distorting_the_mesh()
     
   }
   
-  if(is_tria_info_printed==1)
+  if(is_tria_info_printed == 1)
   {
     print_tria_info(triangulation);
   }
+  
+#if 0
+  vector<Point<dim>> coords_of_triangulation_vertices = triangulation.get_vertices();
+  cout << "coordinates of triangulation vertices\n";
+  print_vector_horizontally(coords_of_triangulation_vertices);
+
+  vector<double> vector_numbers_for_sequencing;
+  for (unsigned int i = 0; i < triangulation.n_vertices(); ++i)
+  {
+    vector_numbers_for_sequencing.push_back(coords_of_triangulation_vertices[i][0]);
+  }
+
+  sort( vector_numbers_for_sequencing.begin(), vector_numbers_for_sequencing.end() );
+
+  
+  obj_string_path = "../../3_writing/0_article/1_figure/5_matlab_process/0_mesh_distortion/0_data/0_vertices/";
+  obj_string = obj_string_path + "data_output_coords_vertices_refine_"+to_string(current_refinement_level_for_showing) + "_mesh_type_" + to_string(id_type_of_grid_distortion) + "_sequenced.txt";
+  save_vector_of_numbers_to_a_file_without_inserting_a_tag(obj_string, vector_numbers_for_sequencing);
+  
+#endif
+
 }
 
 
@@ -557,10 +602,10 @@ void Step_4_Number_Type_Independent<dim>::preparing_for_the_initial_grid_and_oth
   vec_error.resize(n_total_refinements,vector<double>(3,0));
   vec_error_distorted.resize(n_total_refinements,vector<double>(3,0));
   
+  vec_error_using_finer_solution.resize(n_total_refinements,vector<double>(3,0));
+  
   vec_convergence_rate.resize(n_total_refinements-1,vector<float>(3,0));
   vec_convergence_rate_distorted.resize(n_total_refinements-1,vector<float>(3,0));
-  convergence_rate_sum.resize(3);
-  convergence_rate_average.resize(3);
   
   stage_1_making_grid_and_adjusting_boundary_conditions();
   
@@ -593,54 +638,45 @@ void Step_4_Number_Type_Independent<dim>::post_processing_info_of_dof_handler ()
     cout << n_dofs_bspline;
   }
   
-  string obj_string_path = "../../3_writing/2_overleaf/1_article_2d/2_figure/5_matlab_process/0_data/";
   
-  if(is_before_mesh_being_distorted == 1)
-  {
-    if(is_coords_of_dofs_of_uniform_printed==1)
-    {
-      print_coords_of_dofs(obj_string,
-                           dof_handler);
-    }
+//  obj_string_path = "../../3_writing/0_article/1_figure/5_matlab_process/0_mesh_distortion/0_data/";
   
-    if(is_coords_of_dofs_of_uniform_saved==1)
-    {
-      obj_string = obj_string_path + "coords_of_uniform_dofs_of_degree_" + to_string(degree) + "_refine_"+to_string(current_refinement_level_for_showing);
-      // ../step-super/matlab_process/0_data/
-      save_coords_of_dofs(obj_string,
-                          dof_handler,
-                          current_refinement_level_for_showing);
-      
-      sequence_numbers_in_a_txt_file(obj_string);
-      
-    }
-  }else if(is_before_mesh_being_distorted == 0)
+
+  if(is_coords_of_dofs_of_uniform_printed == 1 or is_coords_of_dofs_of_distorted_printed == 1)
   {
-    if(is_coords_of_dofs_of_distorted_printed==1)
-    {
-      obj_string = "dof_handler_distorted";
-      print_coords_of_dofs(obj_string, dof_handler);
-    }
-    
-    if(is_coords_of_dofs_of_distorted_saved==1)
-    {
-        
-      if(id_method_mesh_distortion==0)
-      {
-        obj_string = obj_string_path + "coords_of_randomly_distorted_dofs_of_degree_" + to_string(degree) + "_refine_"+to_string(current_refinement_level_for_showing);
-      }else if(id_method_mesh_distortion==1)
-      {
-        obj_string = obj_string_path + "coords_of_regularly_" + to_string(id_type_of_regular_grid) + "_distorted_dofs_of_degree_" + to_string(degree) + "_refine_"+to_string(current_refinement_level_for_showing);
-      }
-      
-      save_coords_of_dofs(obj_string,
-                          dof_handler,
-                          current_refinement_level_for_showing);  
-      
-      sequence_numbers_in_a_txt_file(obj_string);
-      
-    }
+    print_coords_of_dofs(obj_string,
+                         dof_handler);
   }
+        
+  
+  if(is_coords_of_dofs_of_uniform_saved == 1 or is_coords_of_dofs_of_distorted_saved == 1)
+  {
+      
+    vector<Point<dim> > coords_dofs(dof_handler.n_dofs());
+    putting_coords_of_dofs_into_a_vector(dof_handler,
+                                         coords_dofs,
+                                         current_refinement_level_for_showing);
+      
+    vector<double> vector_numbers_for_sequencing;
+    for (unsigned int i = 0; i < dof_handler.n_dofs(); ++i)
+    {
+      vector_numbers_for_sequencing.push_back(coords_dofs[i][0]);
+    }
+      
+    sort( vector_numbers_for_sequencing.begin(), vector_numbers_for_sequencing.end() );
+     
+    if(is_before_mesh_being_distorted == 1)
+    {
+      obj_string = obj_string_path + "data_output_coords_dofs_degree_" + to_string(degree) + "_refine_"+to_string(current_refinement_level_for_showing) + "_mesh_type_" + to_string(0) + "_sequenced.txt";
+    }else if(is_before_mesh_being_distorted == 0)
+    {
+      obj_string = obj_string_path + "data_output_coords_dofs_degree_" + to_string(degree) + "_refine_"+to_string(current_refinement_level_for_showing) + "_mesh_type_" + to_string(id_type_of_grid_distortion) + "_sequenced.txt";
+    }
+      
+    save_vector_of_numbers_to_a_file_without_inserting_a_tag(obj_string, vector_numbers_for_sequencing);
+      
+  }
+
 }
 
 
@@ -660,7 +696,7 @@ void Step_4_Number_Type_Independent<dim>::stage_2b_setup_system_the_rest ()
 //     print_local_dof_indices(obj_string, dof_handler);  
 //     print_coords_of_dofs(obj_string, dof_handler);  
   }
-//   save_coords_of_dofs(obj_string, dof_handler);  
+//   putting_coords_of_dofs_into_a_vector(obj_string, dof_handler);  
       
   
   if (is_dof_handler_info_postprocessed==1)
@@ -833,11 +869,12 @@ void Step_4_Number_Type_Independent<dim>::output_results ()
 }
 
 
-#if 0
+#if 1
 template <int dim>
 void Step_4_Number_Type_Independent<dim>::stage_6b_computing_the_error_customly ()
 {
-//   cout << "error computation custom\n";
+//   cout << "computing the error customly\n";
+  
   TimerOutput::Scope t(computing_timer, "stage_6b_computing_the_error_customly");
   
   vector<double> vector_error_abs(3, 1.0);
@@ -853,6 +890,9 @@ void Step_4_Number_Type_Independent<dim>::stage_6b_computing_the_error_customly 
   solution_L2_error_abs_custom = vector_error_abs[0];
   solution_H1_semi_error_abs_custom = vector_error_abs[1];
   solution_H2_semi_error_abs_custom = vector_error_abs[2];
+  
+//   cout << "vector_error_abs\n";
+//   print_vector_horizontally(vector_error_abs);
 
   n_times_called_computing_error_customly++;
   
@@ -883,7 +923,7 @@ void Step_4_Number_Type_Independent<dim>::printing_errors_order_of_convergence_e
   if (is_the_error_printed_built_in == 1)
   {
     cout << "  @errors built-in\n";
-    cout << "    solution_L2_error_abs_built_in: " << solution_L2_error_abs_built_in << "\n";
+    cout << "    solution_L2_error_abs_built_in: " << std::scientific << std::setprecision(2) << solution_L2_error_abs_built_in << "\n";
     cout << "    solution_H1_semi_error_abs_built_in: " << solution_H1_semi_error_abs_built_in << "\n";
     cout << "    solution_H2_semi_error_abs_built_in: " << solution_H2_semi_error_abs_built_in << "\n";
     
@@ -944,16 +984,18 @@ void Step_4_Number_Type_Independent<dim>::printing_errors_order_of_convergence_e
   
   if (is_before_mesh_being_distorted == 1)
   {
-    if(is_custom_method_used_for_error == 0)
+    if(is_built_in_method_used_for_error == 1)
     {
       vec_error[cycle_global][0] = solution_L2_error_abs_built_in;
       vec_error[cycle_global][1] = solution_H1_semi_error_abs_built_in;
       vec_error[cycle_global][2] = solution_H2_semi_error_abs_built_in;
-    }else
+    }
+    
+    if(is_custom_method_used_for_error == 1)
     {
-      vec_error[cycle_global][0] = solution_L2_error_abs_custom;
-      vec_error[cycle_global][1] = solution_H1_semi_error_abs_custom;
-      vec_error[cycle_global][2] = solution_H2_semi_error_abs_custom;        
+      vec_error_using_finer_solution[cycle_global][0] = solution_L2_error_abs_custom;
+      vec_error_using_finer_solution[cycle_global][1] = solution_H1_semi_error_abs_custom;
+      vec_error_using_finer_solution[cycle_global][2] = solution_H2_semi_error_abs_custom;        
     }
       
     vec_cpu_time.push_back(total_CPU_time_per_run);
@@ -975,8 +1017,12 @@ void Step_4_Number_Type_Independent<dim>::printing_errors_order_of_convergence_e
     vec_cpu_time_distorted.push_back(total_CPU_time_per_run);
   }
   
-  if(cycle_global>0)
+  if(cycle_global > 0)
   {
+      
+    convergence_rate_sum.resize(3);
+    convergence_rate_average.resize(3);
+      
     float convergence_rate = 1;
       
     for (unsigned int i=0; i<3; ++i)
@@ -995,7 +1041,6 @@ void Step_4_Number_Type_Independent<dim>::printing_errors_order_of_convergence_e
     {
       convergence_rate_average[i] = convergence_rate_sum[i]/(cycle_global);
     }
-    
   }
 }
 
@@ -1008,10 +1053,10 @@ void Step_4_Number_Type_Independent<dim>::storing_error_cpu_time_to_file()
   
   if (is_before_mesh_being_distorted == 1)
   {
-    obj_string = "data_output_error_0_sm_" + vec_type_of_number[id_type_of_number] + ".txt";                  // _alter
+    obj_string = "data_output_error_0_dealii_0_sm_" + vec_type_of_number[id_type_of_number] + ".txt";                  // _alter
   }else if(is_before_mesh_being_distorted == 0)
   {
-    obj_string = "data_output_error_0_sm_" + vec_type_of_number[id_type_of_number] + "_distorted.txt";
+    obj_string = "data_output_error_0_dealii_0_sm_" + vec_type_of_number[id_type_of_number] + "_distorted.txt";
   }
   myfile.open (obj_string, ofstream::app);                                                           // trunc  app
   
@@ -1020,16 +1065,16 @@ void Step_4_Number_Type_Independent<dim>::storing_error_cpu_time_to_file()
   myfile << n_vertices_first_refine <<" ";
   myfile << n_dofs_first_refine << " ";
   
-  if(is_custom_method_used_for_error == 0)
-  {
-    myfile << solution_L2_error_abs_built_in << " ";
-    myfile << solution_H1_semi_error_abs_built_in << " ";
-    myfile << solution_H2_semi_error_abs_built_in << " ";      
-  }else
+  if (is_custom_method_used_for_error == 1)
   {
     myfile << solution_L2_error_abs_custom << " ";
     myfile << solution_H1_semi_error_abs_custom << " ";
     myfile << solution_H2_semi_error_abs_custom << " ";
+  } else if(is_built_in_method_used_for_error == 1)
+  {
+    myfile << solution_L2_error_abs_built_in << " ";
+    myfile << solution_H1_semi_error_abs_built_in << " ";
+    myfile << solution_H2_semi_error_abs_built_in << " ";      
   }
   
 //   if(dim==2 && id_type_of_number==0)
@@ -1100,16 +1145,19 @@ void Step_4_Number_Type_Independent<dim>::printing_results_of_all_refinements ()
   if(is_mesh_uniform_computed == 1)
   {
     cout << "  vec_error:\n";
-    print_vector_in_vector(vec_error);
-    cout << "  vec_convergence_rate:\n";
-    print_vector_in_vector(vec_convergence_rate);
-    cout << "  convergence_rate_average:\n  ";
-    print_vector_horizontally(convergence_rate_average);
+    print_vector_in_vector(vec_error, 2);
     
-    
-    cout << "  vec_solution_L2_norm:\n";
-    print_vector_vertically(vec_solution_L2_norm);    
+    if (n_total_refinements > 1)
+    {
+      cout << "  vec_convergence_rate:\n";
+      print_vector_in_vector(vec_convergence_rate, 2);
+      cout << "  convergence_rate_average:\n";
+      cout << "    ";
+      print_vector_horizontally(convergence_rate_average);
+    }
 
+    cout << "  vec_solution_L2_norm:\n";
+    print_vector_vertically(vec_solution_L2_norm);
     
     cout << "  vec_l2_norm_coeff_diff:\n";
     print_vector_vertically(vec_l2_norm_coeff_diff);  
@@ -1117,6 +1165,9 @@ void Step_4_Number_Type_Independent<dim>::printing_results_of_all_refinements ()
     print_vector_vertically(vec_l2_norm_coeff_helm);  
     cout << "  vec_l2_norm_coeff_first_derivative_a:\n";
     print_vector_vertically(vec_l2_norm_coeff_first_derivative_a);
+    
+    cout << "  vec_error_using_finer_solution:\n";
+    print_vector_in_vector(vec_error_using_finer_solution, 2);
 
     cout << "  CPU time:\n";
     print_vector_vertically(vec_cpu_time);
@@ -1126,9 +1177,13 @@ void Step_4_Number_Type_Independent<dim>::printing_results_of_all_refinements ()
   {
     cout << "\n";
     cout << "  vec_error_distorted:\n";
-    print_vector_in_vector(vec_error_distorted);
-    cout << "  vec_convergence_rate_distorted:\n";
-    print_vector_in_vector(vec_convergence_rate_distorted);
+    print_vector_in_vector(vec_error_distorted, 2);
+    
+    if (n_total_refinements > 1)
+    {    
+      cout << "  vec_convergence_rate_distorted:\n";
+      print_vector_in_vector(vec_convergence_rate_distorted, 2);
+    }
 
     cout << "  vec_l2_norm_coeff_diff_distorted:\n";
     print_vector_vertically(vec_l2_norm_coeff_diff_distorted);  
@@ -1141,7 +1196,7 @@ void Step_4_Number_Type_Independent<dim>::printing_results_of_all_refinements ()
     print_vector_vertically(vec_cpu_time_distorted);
   }
 
-  cout << "  nr. of functions called:\n";
+  cout << "  # of functions called:\n";
   cout << "    setup: " << n_times_called_setup << "\n";
   cout << "    assemble: " << n_times_called_assemble << "\n";
   cout << "    solve: " << n_times_called_solve << "\n";

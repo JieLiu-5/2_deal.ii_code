@@ -10,7 +10,6 @@
 #include <deal.II/base/quadrature_lib.h>
 #include <deal.II/base/function.h>
 #include <deal.II/numerics/vector_tools.h>
-#include <deal.II/numerics/vector_tools.templates.h>                    // only the header files of vector_tools_boundary.templates.h and vector_tools_integrate_difference.templates.h are involved
 
 #include <deal.II/numerics/matrix_tools.h>
 #include <deal.II/lac/vector.h>
@@ -129,7 +128,15 @@ template <int dim>
 double ExactSolution<dim>::value (const Point<dim> &p,
                                                 const unsigned int ) const
 {
-  double return_value = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0)));
+  double return_value;
+  
+  if(dim == 1)
+  {  
+    return_value = exp(-pow(p[0] - 0.5, 2.0));
+  }else if(dim == 2)
+  {
+    return_value = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0)));
+  }
      
   return return_value;
 }
@@ -139,10 +146,16 @@ Tensor<1,dim> ExactSolution<dim>::gradient (const Point<dim> &p,
                                        const unsigned int) const
 {
   Tensor<1,dim> return_value;
-
-  return_value[0] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (-2.0 * (p[0] - 0.5));
-  return_value[1] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (-2.0 * (p[1] - 0.5));
   
+  if(dim == 1)
+  {
+    return_value[0] = exp(-pow(p[0] - 0.5, 2.0)) * (-2.0 * (p[0] - 0.5));
+  }else if(dim == 2)
+  {
+    return_value[0] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (-2.0 * (p[0] - 0.5));
+    return_value[1] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (-2.0 * (p[1] - 0.5));
+  }
+
   return return_value;
 }
 
@@ -152,11 +165,17 @@ SymmetricTensor<2,dim> ExactSolution<dim>::hessian (const Point<dim>   &p,
 {
   SymmetricTensor<2,dim> return_value;
 
-  return_value[0][0] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (4.0 * std::pow((p[0] - 0.5), 2) - 2.0);
-  return_value[0][1] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (-2.0 * (p[0] - 0.5)) * (-2.0 * (p[1] - 0.5));
-  return_value[1][0] = return_value[0][1];
-  return_value[1][1] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (4.0 * std::pow((p[1] - 0.5), 2) - 2.0);
-
+  if(dim == 1)
+  {
+    return_value[0][0] = exp(-pow(p[0] - 0.5, 2.0)) * (4.0 * std::pow((p[0] - 0.5), 2) - 2.0);
+  }else if(dim == 2)
+  {  
+    return_value[0][0] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (4.0 * std::pow((p[0] - 0.5), 2) - 2.0);
+    return_value[0][1] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (-2.0 * (p[0] - 0.5)) * (-2.0 * (p[1] - 0.5));
+    return_value[1][0] = return_value[0][1];
+    return_value[1][1] = exp(-(pow(p[0] - 0.5, 2.0) + pow(p[1] - 0.5, 2.0))) * (4.0 * std::pow((p[1] - 0.5), 2) - 2.0);
+  }
+  
   return return_value;
 }
 
@@ -167,12 +186,18 @@ Coeff_Diff_Real<dim>::value (const Point<dim> &/*p*/,
 {           
   Tensor<2,dim> return_value;
   
+  if (dim == 1)
+  {
+    return_value[0][0] = 1.0;   
+  }else if(dim == 2)
+  {
+  
 #if 1
   
     return_value[0][0] = 1.0;
     return_value[0][1] = 0.0;
     return_value[1][0] = return_value[0][1];
-    return_value[1][1] = return_value[0][0];      
+    return_value[1][1] = return_value[0][0];
       
 #else      
       
@@ -182,6 +207,8 @@ Coeff_Diff_Real<dim>::value (const Point<dim> &/*p*/,
     return_value[1][1] = return_value[0][0];
     
 #endif
+      
+  }
     
   return return_value;
 }
@@ -194,6 +221,12 @@ Coeff_Diff_Real<dim>::gradient (const Point<dim> &/*p*/,
 {
   Tensor<2,dim,Tensor<1,dim>> return_value;
 
+  if (dim == 1)
+  {
+    return_value[0][0][0] = 0.0;
+  }else if(dim == 2)
+  {
+      
 #if 1
   
     return_value[0][0][0] = 0.0;
@@ -219,8 +252,9 @@ Coeff_Diff_Real<dim>::gradient (const Point<dim> &/*p*/,
     return_value[1][1][1] = return_value[0][0][1];
     
 #endif    
+  }
     
-    return return_value;
+  return return_value;
     
 }
 
@@ -275,9 +309,15 @@ double RightHandSide<dim>::value_rhs(const Point<dim> &p,
   
   value_d = Coeff_Diff_Real<dim>::value(p);
   gradient_d_x_direction = Coeff_Diff_Real<dim>::gradient_x_direction(p);
-  gradient_d_y_direction = Coeff_Diff_Real<dim>::gradient_y_direction(p);
   
-  contribution_gradient_d = gradient_d_x_direction[0] + gradient_d_y_direction[1];
+  if(dim == 1)
+  {
+    contribution_gradient_d = gradient_d_x_direction[0];
+  }else if(dim == 2)
+  {
+    gradient_d_y_direction = Coeff_Diff_Real<dim>::gradient_y_direction(p);
+    contribution_gradient_d = gradient_d_x_direction[0] + gradient_d_y_direction[1];
+  }
   
 //   std::cout << "vector_value_d: \n";
 //   for(unsigned int i=0; i<values.size(); ++i)
@@ -322,11 +362,18 @@ void Step4<dim>::make_grid()
       
     
   if(id_mesh_being_created == 0)
-  {   
+  {
+      
     GridGenerator::hyper_cube(triangulation, 0, 1);
     
-    triangulation.begin_active()->face(2)->set_boundary_id(1);                    // bottom
-    triangulation.begin_active()->face(3)->set_boundary_id(1);                    // top
+    if (dim == 1)
+    {
+      triangulation.last_active()->face(1)->set_boundary_id(0);
+    }else if(dim == 2)
+    {
+      triangulation.begin_active()->face(2)->set_boundary_id(1);                    // bottom
+      triangulation.begin_active()->face(3)->set_boundary_id(1);                    // top
+    }
     
     current_refinement_level = grid_parameter;
     
@@ -504,9 +551,15 @@ void Step4<dim>::assemble_system()
       for (const unsigned int i : fe_values.dof_indices())
         {
           for (const unsigned int j : fe_values.dof_indices())
+          {
+              
+//             std::cout << "cell_matrix: \n";
+//             cell_matrix.print(std::cout);
+              
             system_matrix.add(local_dof_indices[i],
                               local_dof_indices[j],
                               cell_matrix(i, j));
+          }
           system_rhs(local_dof_indices[i]) += cell_rhs(i);
         }
     }
@@ -522,6 +575,12 @@ void Step4<dim>::assemble_system()
                                      system_matrix,
                                      solution,
                                      system_rhs);
+/*    std::cout << '\n';
+    std::cout << "system_matrix after applying Dirichlet BC:\n";
+    system_matrix.print_formatted(std::cout);
+    std::cout << "system_rhs after applying both Neumann and Dirichlet BC:\n";
+    system_rhs.print(std::cout); */ 
+  
   
 }
 
@@ -534,7 +593,7 @@ void Step4<dim>::solve()
   std::cout << "solve\n";
   TimerOutput::Scope t(computing_timer, "solve");     
     
-#if 0
+#if 1
   
   SparseDirectUMFPACK  A_direct;
   A_direct.initialize(system_matrix);
@@ -599,6 +658,16 @@ void Step4<dim>::computing_the_error()
   solution_H2_semi_error_abs = VectorTools::compute_global_error(triangulation,
                                                         difference_per_cell,
                                                         VectorTools::H2_seminorm);
+  
+  std::streamsize ss = std::cout.precision();
+  
+  std::cout << std::scientific << std::setprecision(2);
+  std::cout << std::right << std::setw(30) << "solution_L2_error_abs: " << solution_L2_error_abs << "\n";
+  std::cout << std::right << std::setw(30) << "solution_H1_semi_error_abs: " << solution_H1_semi_error_abs << "\n";
+  std::cout << std::right << std::setw(30) << "solution_H2_semi_error_abs: " << solution_H2_semi_error_abs << "\n";
+  
+  std::cout << std::defaultfloat << std::setprecision(ss);
+  
 }
 
 
@@ -691,7 +760,7 @@ int main(int argc, char *argv[])
     
   deallog.depth_console(0);
   {
-    Step4<2> laplace_problem_2d(element_degree,
+    Step4<1> laplace_problem_2d(element_degree,
                                 id_mesh_being_created,
                                 grid_parameter);
     laplace_problem_2d.run();

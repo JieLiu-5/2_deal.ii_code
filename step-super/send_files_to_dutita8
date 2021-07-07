@@ -1,0 +1,3 @@
+#!/bin/bashrc   
+sshpass -p666993ddddLj* scp step-super liu@dutita8.twi.tudelft.nl:/home/dv/liu/2_deal.ii_code/step-super/0_files_for_execution/1d/0_sm
+#sshpass -p666993ddddLj* scp step-super liu@dutita8.twi.tudelft.nl:/home/dv/liu/deal.ii_920/examples/step-super

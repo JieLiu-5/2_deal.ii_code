@@ -641,7 +641,7 @@ void Step_4_Real<dim>::conducting_a_run_for_computing_the_error_customly_for_the
   
   from_setup_system_to_solve_for_the_real_valued_problem ();
 
-//   this->stage_6b_computing_the_error_customly();
+  this->stage_6b_computing_the_error_customly();
   
 }
   
@@ -659,7 +659,6 @@ void Step_4_Real<dim>::run ()
   {
     this->is_containing_neumann = 1;
   }
-  
   
   this->preparing_for_the_initial_grid_and_other_settings();
   
@@ -705,6 +704,8 @@ void Step_4_Real<dim>::run ()
     {
       this->distorting_the_mesh();
       
+#if 0
+      
       this->is_before_mesh_being_distorted = 0;
       
       from_setup_system_to_solve_for_the_real_valued_problem ();
@@ -725,6 +726,8 @@ void Step_4_Real<dim>::run ()
       }      
       
       this->dealing_with_the_error_and_cpu_time_etc_after_one_complete_run();
+      
+#endif
     }
     
     if(cycle < this->n_total_refinements - 1)

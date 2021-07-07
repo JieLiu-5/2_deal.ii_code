@@ -1,9 +1,0 @@
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/edit_cache.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/info.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/debug.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/strip_comments.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/step-super.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/release.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/runclean.dir
-/mnt/c/Users/LIUJI/Dropbox/deal.ii_code/step-super/CMakeFiles/distclean.dir

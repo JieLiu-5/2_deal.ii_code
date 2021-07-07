@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic  -rdynamic -fuse-ld=gold -pthread -ggdb CMakeFiles/step-20.dir/step-20.cc.o  -o step-20 -Wl,-rpath,/home/wsl_jie/build/dealii_uptodate/lib /home/wsl_jie/build/dealii_uptodate/lib/libdeal_II.g.so.8.5.1 -llapack -lf77blas -latlas -lm -lquadmath -lc -ldl -lrt 

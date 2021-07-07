@@ -1,9 +1,0 @@
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/edit_cache.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/info.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/debug.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/strip_comments.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/step-20.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/distclean.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/release.dir
-/mnt/c/Users/LIUJI/Dropbox/step-20/CMakeFiles/runclean.dir

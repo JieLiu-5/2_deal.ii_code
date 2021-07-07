@@ -1,3 +1,0 @@
-#!/bin/bashrc   
-sshpass -p666993ddddLj* scp liu@dutita8.twi.tudelft.nl:/home/dv/liu/deal.ii_920/examples/step-super/data_error_sm_real.txt ./
-#sshpass -p666993ddddLj* scp liu@dutita8.twi.tudelft.nl:/home/dv/liu/deal.ii_920/examples/step-super/data_error_sm_real_distorted.txt ./

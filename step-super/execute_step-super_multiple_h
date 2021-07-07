@@ -1,2 +1,0 @@
-#!/bin/bashrc
-make -j4; for r in $(seq 1 6); do ./step-super 2 2 1 0 1e0 1 0 2 $r; done
